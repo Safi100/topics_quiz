@@ -420,7 +420,7 @@ const questions = [
         options: [
             "Integrating many devices from different vendors with custom applications.",
             "Securing new devices with varying levels of security.",
-            "Developing better routing protocols for new devices.",
+            "integrating new things into existing networks.",
         ],
         answer: [0, 1, 2],
     },
