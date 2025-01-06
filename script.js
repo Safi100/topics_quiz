@@ -287,7 +287,7 @@ const questions = [
         answer: [1], // More people are moving into cities
     },
     {
-        question: "A company plans to develop IoT solutions for both horizontal and vertical markets. What is the major difference in designing solutions for different industries?",
+        question: "Al-Quds University plans to develop IoT solutions for both horizontal and vertical markets. What is the major difference in designing solutions for different industries?",
         options: [
             "Solutions for a horizontal market industry should be usable for a longer time, whereas solutions for a vertical industry would have a short limited time usage.",
             "Control software for a horizontal market industry should be coded with C, whereas control software for a vertical market industry should be coded with Python.",
