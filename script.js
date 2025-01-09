@@ -499,6 +499,277 @@ const questions = [
         ],
         answer: [0], // Keep firmware updated
     },
+   {
+    "question": "Which three blocks in the Business Model Canvas describe infrastructure management? (Choose three.)",
+    "options": [
+      "channels",
+      "key activities",
+      "cost structure",
+      "key resources",
+      "revenue stream",
+      "key partnerships"
+    ],
+    "answer": [1, 3, 5]
+  },
+  {
+    "question": "Which building block of the Business Model Canvas identifies how value will be delivered to customer segments?",
+    "options": [
+      "customer relationships",
+      "customer segments",
+      "cost structure",
+      "channels"
+    ],
+    "answer": [3]
+  },
+  {
+    "question": "Which aspect of the Business Model Canvas is covered by four blocks?",
+    "options": [
+	"value proposition",
+	"customer segment",
+	"channels",
+	"customer relationships"
+    ],
+    "answer": [2]
+  },
+  {
+    "question": "What is documented through the use of a flowchart?",
+    "options": [
+      "the best paths through a network",
+      "the interactions between entities along a timeline",
+      "the solution flow to a given problem",
+      "the components and connections of electric circuits"
+    ],
+    "answer": [2]
+  },
+  {
+    "question": "What is an example of a company or entrepreneur using the Business Model Canvas?",
+    "options": [
+      "using a network simulation tool such as Packet Tracer",
+      "using network documentation software such as Microsoft Visio",
+      "using network inspection software such as WireShark",
+      "using sticky notes on a large surface"
+    ],
+    "answer": [3]
+  },
+  {
+    "question": "What are the first two steps in the engineering design process? (Choose two.)",
+    "options": [
+      "document",
+      "inspire",
+      "define",
+      "construct",
+      "analyze"
+    ],
+    "answer": [0, 1]
+  },
+  {
+    "question": "What are the five steps in the engineering design process by order?",
+    "options": [],
+    "answer": ["inspire", "define", "prototype", "test", "present"]
+  },
+  {
+    "question": "Which function is associated with the marketing and sales activity of a product or service in the Business Model Canvas?",
+    "options": [
+      "facilitating an exchange of value for offerings",
+      "receiving inputs for offerings",
+      "transforming inputs into offerings",
+      "distributing offerings to customers"
+    ],
+    "answer": [0]
+  },
+  {
+    "question": "Fill in the blank.\nRent is an example of a ___ cost because it does not change based on the amount of product produced.",
+    "options": [],
+    "answer": ["fixed"]
+  },
+  {
+    "question": "Which web architecture uses hyperlink references that point to images, audio, or video?​",
+    "options": [
+      "hypermedia",
+      "hyperlink",
+      "URIs",
+      "URLs"
+    ],
+    "answer": [0]
+  },
+  {
+    "question": "What are three of the eight Millennium Development Goals? (Choose three.)",
+    "options": [
+      "eradicate extreme hunger",
+      "stop nuclear weapon development",
+      "ensure environmental sustainability",
+      "realize IoT solutions for car manufacturers",
+      "promote gender equality and empower women",
+      "provide high speed Internet access to every home"
+    ],
+    "answer": [0, 2, 4]
+  },
+  {
+    "question": "Which area of activity in the Business Model Canvas is associated with transforming inputs into offerings?",
+    "options": [
+      "sales",
+      "marketing",
+      "service",
+      "operations"
+    ],
+    "answer": [3]
+  },
+  {
+    "question": "What are two precautions that can be taken to prevent radio interference from unconnected analog pins on a circuit board? (Choose two.)",
+    "options": [
+      "Connect them to ground.",
+      "Connect them to the battery.",
+      "Connect them to a resistor.",
+      "Cover them with electrical tape.",
+      "Connect them to each other."
+    ],
+    "answer": [0, 1]
+  },
+  {
+    "question": "What are two characteristics of the Cisco Connected Factory Solution? (Choose two.)",
+    "options": [
+      "secure manufacturing standards",
+      "network security",
+      "operational efficiency and productivity",
+      "low power requirements",
+      "complex management tools",
+      "intelligent grid routers"
+    ],
+    "answer": [1, 2]
+  },
+  {
+    "question": "What are three of the six core components in the Cisco IoT system? (Choose three.)",
+    "options": [
+      "fog computing",
+      "wearable technologies",
+      "data analytics",
+      "robot guides",
+      "cyber and physical security",
+      "smart bandages"
+    ],
+    "answer": [0, 2, 4]
+  },
+  {
+    "question": "Match the Cisco care-at-a-distance solution components with the functions.",
+    "options": [
+      "Cisco Extended Care –> facilitates remote patient engagement and care team interactions",
+      "Cisco WebEx for Healthcare –> facilitates remote collaboration, training, and patient education",
+      "Cisco TelePresence for Healthcare –> links people globally for training, consultation, and specialized collaboration"
+    ],
+    "answer": []
+  },
+  {
+    "question": "Which Cisco IoT manufacturing solution addresses protection against risks, improves efficiency, and reduces factory site downtime?",
+    "options": [
+      "Cisco Secure Ops",
+      "Cisco Connected Factory",
+      "Cisco Connected Machines",
+      "Cisco Connected Supply Chain"
+    ],
+    "answer": [0]
+  },
+  {
+    "question": "What is an example of M2M communication in a home with the IoT connection?",
+    "options": [
+      "A home owner views the home monitoring system while traveling out of town.",
+      "A smart refrigerator sends a message to a grocery store for the delivery of milk.",
+      "A customer receives a message from an online store that the product ordered is shipped.",
+      "A webcam detects movement and notifies a home owner that someone has entered the home."
+    ],
+    "answer": [1]
+  },
+  {
+    "question": "Which Cisco IoT pillar would include industrial routers, industrial switches, industrial wireless devices, and embedded networks?",
+    "options": [
+      "fog computing",
+      "network connectivity",
+      "cyber and physical security",
+      "management and automation"
+    ],
+    "answer": [1]
+  },
+  {
+    "question": "Which group of organizations is an example of vertical industries suitable for a common technology solution?",
+    "options": [
+      "restaurants, car dealers, power plants",
+      "pharmaceutical companies, hospitals, lab facilities",
+      "car manufacturers, universities, insurance companies",
+      "tool manufacturers, food process plants, book publishers"
+    ],
+    "answer": [1]
+  },
+  {
+    "question": "Which statement describes the term Industrial Internet?",
+    "options": [
+      "the platform that allows cloud-based application development",
+      "Internet infrastructure components",
+      "software and hardware that extends IoT applications to the network edge",
+      "the integration of complex physical machinery with networked sensors and software"
+    ],
+    "answer": [3]
+  },
+  {
+    "question": "Which Cisco smart grid solution works with utilities to plan and design reliable and highly secure network architectures?",
+    "options": [
+      "Grid Operations",
+      "Field Area Network",
+      "GridBlocks Architecture",
+      "Connected Grid Services",
+      "Transmission and Substation"
+    ],
+    "answer": [2]
+  },
+  {
+    "question": "Which solution of Cisco Smart+Connected Communities provides a standards-based system to help reduce city energy consumption and improve citizen vehicle compliance?",
+    "options": [
+      "Smart+Connected Wi-Fi",
+      "Smart+Connected Lighting",
+      "Smart+Connected Operations Center",
+      "Smart+Connected Parking and Traffic"
+    ],
+    "answer": [1]
+  },
+  {
+    "question": "How does the Smart Grid system benefit the environment?",
+    "options": [
+      "It decreases traffic in cities and helps eliminate air pollution from cars.",
+      "It enables the more efficient use of home energy resources by enabling homeowners to control the consumption of energy by heating and cooling systems, lighting, and appliances.",
+      "It enables excess energy that is generated at homes and other sources to be distributed along with the power generated by utility companies.",
+      "It limits the amount of power that is available to consumers through enhanced monitoring and control by utility companies."
+    ],
+    "answer": [2]
+  },
+  {
+    "question": "Which Cisco healthcare provider management solution enables experts to plan, build, and manage a network that meets clinical, business, and compliance needs?",
+    "options": [
+      "Cisco Medical-Grade Network",
+      "Digital Media Suite for healthcare",
+      "Cisco Services for Connected Health",
+      "Cisco Healthcare Intelligent Contact Center"
+    ],
+    "answer": [2]
+  },
+  {
+    "question": "Match the wireless technology with the description.",
+    "options": [
+      "ZigBee –> popular in IoT applications such as home automation",
+      "4G/5G –> cellular-based technology for transferring data over large geographic areas",
+      "LoRaWAN –> uses a gateway to relay messages between end-devices and a central network server"
+    ],
+    "answer": []
+  },
+  {
+    "question": "What are three characteristics that distinguish big data from data? (Choose three.)",
+    "options": [
+      "amount of data being transported and stored",
+      "rate at which data is generated",
+      "type of data that is generated",
+      "where the data is stored",
+      "how the data is collected",
+      "who is authorized to access the data"
+    ],
+    "answer": [0, 1, 2]
+  }
 ];
   
   const quizContainer = document.getElementById("quiz-container");
