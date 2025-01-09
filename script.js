@@ -522,14 +522,14 @@ const questions = [
     "answer": [3]
   },
   {
-    "question": "Which aspect of the Business Model Canvas is covered by four blocks?",
+    "question": "Which aspect of the Business Model Canvas is covered by four blocks: value proposition, customer segment, channels, and customer relationships?",
     "options": [
-	"value proposition",
-	"customer segment",
-	"channels",
-	"customer relationships"
+  "finances",
+  "customer interface",
+  "technologies",
+  "infrastructure management"
     ],
-    "answer": [2]
+    "answer": [1]
   },
   {
     "question": "What is documented through the use of a flowchart?",
@@ -560,7 +560,7 @@ const questions = [
       "construct",
       "analyze"
     ],
-    "answer": [0, 1]
+    "answer": [1, 2]
   },
   {
     "question": "What are the five steps in the engineering design process by order?",
