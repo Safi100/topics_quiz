@@ -413,7 +413,7 @@ const questions = [
             "An IoT device is connected to the cloud.",
             "A thermostat shuts down an air conditioning unit when the temperature reaches the set temperature.",
         ],
-        answer: [2], // An IoT device is connected to the cloud
+        answer: [0], // An IoT device is connected to the cloud
     },
     {
         question: "What are three new challenges associated with the rapid growth of the IoT? (Choose three.)",
