@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Quiz</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffffff, #e6f7ff);
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      background: #007acc;
+      color: white;
+      padding: 20px;
+      margin: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #quiz-container {
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .question {
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      color: #005b96;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .options button {
+      flex: 1 1 calc(50% - 10px);
+      padding: 15px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #f0f0f0;
+      color: #333;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    .options button:hover {
+      background: #e6f7ff;
+      transform: scale(1.02);
+    }
+
+    .options button.correct {
+      background: #1e7e34;
+      color: #fff;
+    }
+
+    .options button.wrong {
+      background: #b71c1c;
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      color: #666;
+      background: #f0f0f0;
+      margin-top: 20px;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive Quiz</h1>
+  <div id="quiz-container"></div>
+  <footer>&copy; 2024 Quiz Website</footer>
+
+  <script>
+    const questions = [
+      {
+        question: "This device divides the incoming signal into low frequencies to send to voice devices, and high frequencies for data to the computer.",
+        options: ["Multicast router", "Interface device", "Sequencer", "Splitter"],
+        answer: [3]
+      },
+      {
+        question: "The subnet mask for a particular network is 255.255.31.0. Which of the following pairs of IP addresses could belong to this network?",
+        options: [
+          "172.57.88.62 and 172.56.87.233",
+          "10.35.28.2 and 10.35.29.4",
+          "191.203.31.87 and 191.234.31.88",
+          "128.8.129.43 and 128.8.161.55"
+        ],
+        answer: [3]
+      },
+      {
+        question: "In Unicast Routing, the Dijkstra algorithm creates a shortest path tree from a:",
+        options: ["Graph", "Chart", "Station", "Link"],
+        answer: [0]
+      },
+      {
+        question: "In class C, if subnet mask is 255.255.255.224 then calculates number of subnets?",
+        options: ["6", "8", "4", "None of the Above"],
+        answer: [1]
+      },
+      {
+        question: "Which constructor of Datagram Socket class is used to create a datagram socket and binds it with the given Port Number?",
+        options: ["DatagramSocket(int port)", "DatagramSocket(int port, Int Address address)", "DatagramSocket()", "DatagramSocket(int address)"],
+        answer: [1]
+      },
+    
+{
+  question: "The term that is used to place packet in its route to its destination is called __________",
+  options: ["Delayed", "Urgent", "Forwarding", "Delivering"],
+  answer: [2]
+},
+{
+  question: "In Unicast routing, if instability is between three nodes, stability cannot be ________",
+  options: ["Stable", "Reversed", "Guaranteed", "Forward"],
+  answer: [2]
+},
+{
+  question: "LSP stands for __________",
+  options: [
+    "Link Stable Packet",
+    "Link State Packet",
+    "Link State Protocol",
+    "Link State Path"
+  ],
+  answer: [1]
+},
+{
+  question: "If an Ethernet destination address is 08:07:06:05:44:33, then this is a ______ address.",
+  options: ["Unicast", "Multicast", "Broadcast", "Any of the above"],
+  answer: [0]
+},
+{
+  question: "You connect a host to a switch port, but the new host cannot log into the server that is plugged into the same switch. What could the problem be?",
+  options: [
+    "The router is not configured for the new host",
+    "The VTP configuration on the switch is not updated for the new host",
+    "The host has an invalid MAC address",
+    "The switch port the host is connected to is not configured with the correct VLAN membership"
+  ],
+  answer: [3]
+},
+{
+  question: "Consider a source computer (S) transmitting a file of size 10^6 bits to a destination computer (D) over a network of two routers (R1 and R2) and three links (L1, L2, and L3). L1 connects S to R1; L2 connects R1 to R2; and L3 connects R2 to D. Each link is 100km in length, signals travel at 10^8 meters per second, and link bandwidth is 1Mbps. The file is broken into 1000 packets of size 1000 bits. Find the total sum of transmission and propagation delays in transmitting the file from S to D?",
+  options: ["1005ms", "1010ms", "3000ms", "3003ms"],
+  answer: [0]
+},
+
+{
+  question: "_______ adds pruning and grafting to _______ to create a multicast shortest path tree that supports dynamic membership changes.",
+  options: ["RPM; RPB", "RPB; RPM", "RPF: RPM", "None of the above"],
+  answer: [0]
+},
+{
+  question: "A _______ message tells an upstream router to stop sending multicast messages for a specific group through a specific router.",
+  options: ["Weed", "Graft", "Prune", "None of the above"],
+  answer: [2]
+},
+{
+  question: "A _______ routing table contains information entered manually.",
+  options: ["Static", "Dynamic", "Hierarchical", "None of the above"],
+  answer: [0]
+},
+{
+  question: "Because the sending and the receiving processes may not write or read data at the same speed, TCP ________.",
+  options: ["Speeds up the slower process", "Slows down the faster process", "Uses buffers", "None of the above"],
+  answer: [2]
+},
+{
+  question: "A transparent bridge's duties include",
+  options: ["Filtering frames", "Forwarding", "Blocking", "All of them"],
+  answer: [3]
+},
+{
+  question: "In _________, autonegotiation allows two devices to negotiate the mode or data rate of operation.",
+  options: ["Standard", "Fast Ethernet", "Gigabit Ethernet", "Ten-Gigabit Ethernet"],
+  answer: [1]
+},
+{
+  question: "If a Company require 60 hosts then What is the best possible subnet mask?",
+  options: [
+    "255.255.255.0",
+    "255.255.255.192",
+    "255.255.255.224",
+    "255.255.255.240"
+  ],
+  answer: [1]
+},
+{
+  question: "A subnet has been assigned a subnet mask of 255.255.255.192. What is the maximum number of hosts that can belong to this subnet?",
+  options: ["14", "30", "62", "126"],
+  answer: [2]
+},
+{
+  question: "Frames from one LAN can be transmitted to another LAN via which device?",
+  options: ["Router", "Repeater", "Modem", "Bridge"],
+  answer: [3]
+},
+{
+  question: "Datagrams are routed to their destinations with the help of ________",
+  options: ["Switch table", "Segments table", "Datagram table", "Routing table"],
+  answer: [3]
+},
+{
+  question: "For Network address : 172.160.12.0 , and CIDR /26, then available addresses, the first host IP is _________, and the last host IP is ________.",
+  options: ["172.160.12.1 and 172.160.12.62"],
+  answer: [0]
+},
+{
+  question: "Computers that control processes accept data in a continuous __________.",
+  options: [
+    "Data traffic pattern",
+    "Data highway",
+    "Infinite loop",
+    "Feedback loop"
+  ],
+  answer: [3]
+},
+{
+  question: "Count to infinity is a problem associated with",
+  options: [
+    "Link state routing protocol",
+    "Distance vector routing protocol (RIP)",
+    "DNS while resolving host name",
+    "TCP for congestion control"
+  ],
+  answer: [1]
+},
+{
+  question: "Emulation of ________ through ___________ is not efficient and may create long delays.",
+  options: [
+    "Unicasting; multiple unicasting",
+    "Multicasting; multiple unicasting",
+    "Broadcasting; multicasting",
+    "None of the above"
+  ],
+  answer: [1]
+},
+{
+  question: "Identify the correct order in which a server process must invoke the function calls accept, bind, listen, and recv according to UNIX socket API.",
+  options: ["listen, accept, bind recv", "bind, listen, accept, recv", "bind, accept, listen, recv", "accept, listen, bind, recv"],
+  answer: [1]
+},
+{
+  question: "Datagrams are connection-oriented.",
+  options: ["True", "False"],
+  answer: [1] // False
+},
+{
+  question: "What is the total sum of transmission and propagation delays in transmitting a file of size 106 bits from source to destination over a network of two routers and three links?",
+  options: ["1005ms", "1010ms", "3000ms", "3003ms"],
+  answer: [0]
+},
+{
+  question: "Choose the best matching between Group 1 and Group 2.\n\nGroup-1:\nP. Data link, Q. Network layer, R. Transport layer\n\nGroup-2:\n1. Ensures reliable transport of data over a physical point-to-point link\n2. Encodes/decodes data for physical transmission\n3. Allows end-to-end communication between two processes\n4. Routes data from one network node to the next",
+  options: ["P-1, Q-4, R-3", "P-2, Q-4, R-1", "P-2, Q-3, R-1", "P-1, Q-3, R-2"],
+  answer: [0]
+},
+{
+  question: "There is no filtering capability in:",
+  options: ["Hubs", "Bridges", "Gateways", "Repeaters"],
+  answer: [3]
+},
+{
+  question: "Classless Inter-domain Routing (CIDR) receives a packet with address 131.23.151.76. The router’s routing table has the following entries:\n\nPrefix           Output Interface Identifier\n131.16.0.0/12    3\n131.28.0.0/14    5\n131.19.0.0/16    2\n131.22.0.0/15    1\n\nThe identifier of the output interface on which this packet will be forwarded is:",
+  options: ["1", "2", "3", "5"],
+  answer: [0]
+},
+{
+  question: "In Unicast Routing, the Dijkstra algorithm creates a shortest path tree from a ________.",
+  options: ["Graph", "Tree", "Network", "Link"],
+  answer: [0]
+},
+{
+  question: "Which routing protocol is an implementation of multicast distance vector routing and is based on RIP?",
+  options: ["MOSPF", "DVMRP", "CBT", "None of the above"],
+  answer: [1]
+},
+{
+  question: "Consider the following three statements about link state and distance vector routing protocols for a large network with 500 nodes and 4000 links:\n\nS1: The computational overhead in link state protocols is higher than in distance vector protocols.\nS2: A distance vector protocol (with split horizon) avoids persistent routing loops, but not a link state protocol.\nS3: After a topology change, a link state protocol will converge faster than a distance vector protocol.\n\nWhich one of the following is correct about S1, S2, and S3?",
+  options: [
+    "S1, S2, and S3 are all true.",
+    "S1, S2, and S3 are all false.",
+    "S1 and S2 are true, but S3 is false.",
+    "S1 and S3 are true, but S2 is false."
+  ],
+  answer: [3]
+},
+{
+  question: "TCP/IP model does not have ______ layer but OSI model has this layer; Delimiting and synchronization of data exchange is provided by ______.",
+  options: [
+    "Session; Session",
+    "Session; Physical",
+    "Physical; Application",
+    "Data Link; Session",
+    "Data Link; Transport"
+  ],
+  answer: [0]
+},
+{
+  question: "What is the Address/mask to aggregate the following: 57.6.96.0/21, 57.6.104.0/21, 57.6.112.0/21, and 57.6.120.0/21?",
+  options: ["57.6.96.0/19", "57.6.96.0/20", "57.6.0.0/20", "57.6.0.0/19"],
+  answer: [1]
+},
+{
+  question: "In IPv4, a machine drops header and trailer when it receives a ______.",
+  options: ["Request", "Packet", "Service", "Frame"],
+  answer: [3]
+},
+{
+    question: "Data Link Control deals with the design and procedure for ______ communication.",
+    options: ["Layer-to-layer", "Process-to-process", "Host-to-host", "Node-to-node"],
+    answer: [3]
+  },
+  {
+    question: "Based on the Clos criteria, if N = 200, then the minimum number of cross points is greater than or equal to ______.",
+    options: ["15200", "18000", "25000", "80000"], // Assuming options; modify as needed
+    answer: [0] // Replace with the correct index once confirmed
+  },
+  {
+    question: "What is the primary Network Address Translation?",
+    options: [
+      "To convert private IP addresses to public IP addresses",
+      "To block unwanted websites",
+      "To convert public IP addresses to private IP addresses",
+      "To send a copy of a packet from a single source to multiple recipients on a network"
+    ],
+    answer: [0]
+  },
+  {
+    question: "Which of the following descriptions are correct about VLAN interface?",
+    options: [
+      "1 and 4",
+      "3",
+      "2 and 4",
+      "1",
+      "1 and 3"
+    ],
+    answer: [4]
+  },
+  {
+    question: "Which of the following functions is the correct sequence that pass address from process to kernel?",
+    options: [
+      "bind, connect, sendto, close",
+      "accept, recvfrom, sendmsg, recvmsg",
+      "accept, getpeername, getsockname",
+      "socket, bind, connect, select, recvfrom"
+    ],
+    answer: [3]
+  },
+  {
+    question: "Which incorrect answer?",
+    options: [
+      "1 and 4",
+      "2 and 3",
+      "3 and 4",
+      "1"
+    ],
+    answer: [0]
+  },
+  {
+    question: "What distance-vector concept keeps a RIP router from advertising routes to the next-hop neighbor for those routes?",
+    options: [
+      "Poison reverse",
+      "All mentioned",
+      "Split horizon",
+      "Define infinity (16)"
+    ],
+    answer: [1]
+  },
+  {
+    question: "In Multicast routing, RPB step, which of the following are true?",
+    options: [
+      "2",
+      "both 1 and 4",
+      "4",
+      "both 1 and 3",
+      "both 2 and 4"
+    ],
+    answer: [3]
+  },
+  {
+    question: "Select write answer:",
+    options: [
+      "In packet switching no resource reservation needed while circuit switching has resource reservation so packet switching leads to better utilization of resources i.e. bandwidth.",
+      "In circuit switching no packet processing needed at intermediate path routers while in packet switching needed. So, packet switching require more packet processing time than circuit switching.",
+      "Circuit switching has three phase: connection establishment, Data transfer and tear down. while packet switching has only one phase data transfer based on routing.",
+      "Circuit switching has less variation in packets than packet switching.",
+      "Circuit switching send packet in order, while packet switching send out of order. so reordering needs in packet switching."
+    ],
+    
+    answer: [0, 1, 4]
+  
+  },
+
+  {
+    question: "_______ is wired LAN form of Fast Ethernet, and installation from 2 pairs of CAT 5 or above cable.",
+    options: [
+      "100 BASE-TX",
+      "100 BASE-T2",
+      "100 BASE-T4",
+      "100 BASE-T"
+    ],
+    answer: [0]
+  },
+  {
+    question: "Given are the following subnet addresses:\n\nj: 192.168.128.0/22\nk: 192.168.136.0/22\nl: 192.168.142.0/22\n\nWhich of the following statements is true?",
+    options: [
+      "192.168.132.1 is in the range of (j), and 192.168.146.1 is in the range of (k).",
+      "192.168.146.1 and 192.168.132.1 are not in the IP range of any of the three subnets.",
+      "192.168.132.1 is in the range of (j), and 192.168.146.1 is not in the IP range of any of the three subnets.",
+      "192.168.132.1 is in the range of (j), and 192.168.146.1 is in the range of (l)."
+    ],
+    answer: [2]
+  },
+  {
+    question: "There is no need for Carrier Sense Multiple Access/Collision Detection in full duplex.",
+    options: [
+      "True",
+      "False"
+    ],
+    answer: [0]
+  },
+  {
+    question: "When using the 1-persistent Aloha technique, if the medium is busy, the station continues to listen until the channel is sensed idle and then transmits immediately.",
+    options: ["True", "False"],
+    answer: [0]
+  },
+  {
+    question: "The router will ______ if a router cannot determine the next hop for a packet.",
+    options: [
+      "Send the packet back to the packet's source.",
+      "Forward the packet to the default route.",
+      "Broadcast the packet.",
+      "Store the packet in the memory buffer."
+    ],
+    answer: [1]
+  },
+  {
+    question: "A bridge forwards or filters a frame by comparing the information in its address table to the frame's ______.",
+    options: [
+      "Layer two destination physical address.",
+      "Layer two source address.",
+      "Layer three destination address.",
+      "Source node's physical address."
+    ],
+    answer: [0]
+  },
+  {
+    question: "Which two of the following are true regarding the distance-vector and link-state routing protocols?",
+    options: [
+      "1 and 3",
+      "1",
+      "2 and 3",
+      "4"
+    ],
+    answer: [0]
+  },
+  {
+    question: "If you want to find the number of routers between a source and destination, the utility to be used is: show IP route.",
+    options: ["True", "False"],
+    answer: [1]
+  },
+  {
+    question: "Performance, it is measured by frequency of failure, the time it takes a link to recover from a failure, and the network's robustness.",
+    options: ["True", "False"],
+    answer: [0]
+  },
+  {
+    question: "Multicast routing. In Reverse Path Broadcast, which of the following are true?",
+    options: [
+      "Packets reach every router in the network.",
+      "Packets are guaranteed to follow the lowest-cost path from source to destinations.",
+      "Unless a packet arrives to the router on the interface that is on the shortest path to the source, the packet is dropped.",
+      "Every router receives exactly one copy of each packet."
+    ],
+    answer: [2]
+  },
+  {
+    question: "MOSPF protocol is an extension of the OSPF protocol that uses multicast routing to create ______ trees. The protocol is based on ______ routing.",
+    options: [
+      "group-shared, path vector",
+      "group-shared, path vector",
+      "source-based, distance vector",
+      "source-based, link state"
+    ],
+    answer: [3]
+  },
+  {
+    question: "What is the meaning of Bandwidth in Network?",
+    options: [
+      "The maximum amount of data transmitted over an internet connection in a given amount of time.",
+      "Transmission capacity of a communication channel.",
+      "The number of bits transmitted from one device to another or over a network per second.",
+      "both a and b"
+    ],
+    answer: [3]
+  },
+  {
+  question: "The ______ must to be checked in order to send a message to the appropriate application program that is operating on a host.",
+    options: [
+      "MAC address",
+      "port address",
+      "IP address",
+      "all addresses"
+    ],
+    answer: [1]
+  },
+  {
+    question: "Which isn't relevant to the IP protocol?",
+    options: [
+      "is connectionless.",
+      "offer unreliable service.",
+      "all of options.",
+      "offer reliable service."
+    ],
+    answer: [3]
+  },
+  {
+    question: "A peer-to-peer network has one central controlling computer.",
+    options: ["True", "False"],
+    answer: [1]
+  },
+  {
+    question: "The maximum length of 10GBase-L in Gigabit ethernet implementation is:",
+    options: [
+      "100 m",
+      "300 m",
+      "10 km",
+      "40 km"
+    ],
+    answer: [2]
+  },
+  {
+    question: "The overall vulnerable time value of pure Aloha is 1/2 Tfr.",
+    options: ["True", "False"],
+    answer: [0]
+  },
+  {
+    question: "If the sender is a host and wants to send a packet to another host on another network, the logical address that must be mapped to a physical address is ______.",
+    options: [
+      "the IP address of the router found in the routing table.",
+      "the source IP address",
+      "the destination IP address",
+      "the destination IP address in the datagram header"
+    ],
+    answer: [0]
+  },
+  {
+    question: "The 1-persistent approach can be considered a special case of the p-persistent approach with ______.",
+    options: [
+      "sends with probability 1 - p",
+      "waits 1 s before sending",
+      "sends with probability p",
+      "p = 1"
+    ],
+    answer: [3]
+  },
+  {
+    question: "The spanning tree is not possible in switch network device.",
+    options: ["True", "False"],
+    answer: [1]
+  },
+  {
+    question: "If the IP address is 192.168.10.0/30, find subnet mask, number of networks, number of addresses for hosts.",
+    options: [
+      "255.255.255.252, 4, 64",
+      "255.255.255.252, 64, 2",
+      "255.255.255.252, 4, 4",
+      "255.255.255.252, 64, 4"
+    ],
+    answer: [1]
+  },
+  {
+    question: "The overall vulnerable time value of pure Aloha is 1/2 Tfr.",
+    options: ["True", "False"],
+    answer: [0]
+  },
+  {
+    question: "If the sender is a host and wants to send a packet to another host on another network, the logical address that must be mapped to a physical address is ______.",
+    options: [
+      "the IP address of the router found in the routing table.",
+      "the source IP address",
+      "the destination IP address",
+      "the destination IP address in the datagram header"
+    ],
+    answer: [0]
+  },
+  {
+    question: "The 1-persistent approach can be considered a special case of the p-persistent approach with ______.",
+    options: [
+      "sends with probability 1 - p",
+      "waits 1 s before sending",
+      "sends with probability p",
+      "p = 1"
+    ],
+    answer: [3]
+  },
+  {
+  question: "Which of the following statements about TCP socket functions is incorrect?\n" +
+            "1. Bind(): Converts an unconnected active TCP socket into a passive socket.\n" +
+            "2. Listen(): Waits for incoming connections.\n" +
+            "3. Connect(): Called on a stream socket by the client application to establish a connection to a server.\n" +
+            "4. Accept(): Used to associate a socket with a port on the local machine.",
+  options: [
+    "1",
+    "3 and 4",
+    "2 and 3",
+    "1 and 2",
+    "1 and 4"
+  ],
+  answer: [4] // Corresponds to "1 and 4"
+},
+
+
+
+  {
+    question: "The spanning tree is not possible in switch network device.",
+    options: ["True", "False"],
+    answer: [1]
+  },
+  {
+    question: "If the IP address is 192.168.10.0/30, find subnet mask, number of networks, number of addresses for hosts.",
+    options: [
+      "255.255.255.252, 4, 64",
+      "255.255.255.252, 64, 2",
+      "255.255.255.252, 4, 4",
+      "255.255.255.252, 64, 4"
+    ],
+    answer: [1]
+  },
+
+
+    ];
+
+    const quizContainer = document.getElementById("quiz-container");
+
+  questions.forEach((q, index) => {
+    const questionDiv = document.createElement("div");
+    questionDiv.classList.add("question");
+
+    const questionText = document.createElement("h3");
+    questionText.textContent = `${index + 1}. ${q.question}`;
+    questionDiv.appendChild(questionText);
+
+    const optionsDiv = document.createElement("div");
+    optionsDiv.classList.add("options");
+
+    const selectedAnswers = new Set(); // Keep track of selected answers
+
+    q.options.forEach((option, i) => {
+      const button = document.createElement("button");
+      button.textContent = option;
+
+      button.addEventListener("click", () => {
+        if (q.answer.includes(i)) {
+          button.classList.add("correct");
+          selectedAnswers.add(i); // Add to selected answers
+        } else {
+          button.classList.add("wrong");
+          selectedAnswers.delete(i); // Remove incorrect answer if selected
+        }
+
+        // Check if all correct answers are selected
+        const correctSelected = Array.from(selectedAnswers).filter((ans) =>
+          q.answer.includes(ans)
+        );
+
+        if (
+          correctSelected.length === q.answer.length &&
+          correctSelected.every((ans) => q.answer.includes(ans))
+        ) {
+          // All correct answers selected, disable all buttons
+          Array.from(optionsDiv.children).forEach((btn) => {
+            btn.disabled = true;
+          });
+        }
+      });
+
+      optionsDiv.appendChild(button);
+    });
+
+    questionDiv.appendChild(optionsDiv);
+    quizContainer.appendChild(questionDiv);
+  });
+  </script>
+</body>
+</html>
